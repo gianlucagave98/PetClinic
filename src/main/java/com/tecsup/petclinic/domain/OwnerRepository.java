@@ -1,7 +1,12 @@
 package com.tecsup.petclinic.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public interface OwnerRepository extends CrudRepository<Owner, Long>{
-	
+
+
 }

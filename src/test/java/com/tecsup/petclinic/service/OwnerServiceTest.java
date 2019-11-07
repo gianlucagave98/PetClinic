@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.tecsup.petclinic.domain.Owner;
+import com.tecsup.petclinic.domain.Pet;
 import com.tecsup.petclinic.exception.OwnerNotFoundException;
 
 import org.slf4j.Logger;
@@ -65,6 +68,7 @@ public class OwnerServiceTest {
 		assertEquals(telephone,owner.getTelephone());
 	}
 	
+	
 	@Test
 	public void testDelete() {
 		String first_name="Gianluca";
@@ -90,9 +94,11 @@ public class OwnerServiceTest {
 		}
 	}
 	
+	
+	
 	@Test
 	public void testUpdateOwner() {
-		// Lo que se va a sustituir
+
 		String first_name="Gianluca";
 		String last_name="Gave";
 		String address="Calle Zeuz, Surco";
@@ -100,7 +106,7 @@ public class OwnerServiceTest {
 		String telephone="950588151";
 		long id=1;
 		
-		// Lo que se va a subir
+
 		String up_first_name="Alex";
 		String up_last_name="Gave";
 		String up_address="Av.Gaviotas";
@@ -109,21 +115,21 @@ public class OwnerServiceTest {
 		
 		Owner owner=new Owner(first_name, last_name, address, city, telephone);
 		
-		// Crear record
+
 		logger.info(">"+ owner);
 		Owner leerOwner= ownerService.create(owner);
 		logger.info(">>"+leerOwner);
 		
 		id=leerOwner.getId();
 		
-		// Preparar data para update
+
 		leerOwner.setFirst_name(up_first_name);
 		leerOwner.setLast_name(up_last_name);
 		leerOwner.setAddress(up_address);
 		leerOwner.setCity(up_city);
 		leerOwner.setTelephone(up_telephone);
 		
-		// Ejecutar Update
+
 		Owner upgradeOwner= ownerService.update(leerOwner);
 		logger.info(">>>>"+upgradeOwner);
 		

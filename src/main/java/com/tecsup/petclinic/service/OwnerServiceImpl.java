@@ -1,5 +1,6 @@
 package com.tecsup.petclinic.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.tecsup.petclinic.domain.Owner;
 import com.tecsup.petclinic.domain.OwnerRepository;
+import com.tecsup.petclinic.domain.Pet;
 import com.tecsup.petclinic.exception.OwnerNotFoundException;
 
 @Service
@@ -51,6 +53,7 @@ private static final Logger logger = LoggerFactory.getLogger(OwnerServiceImpl.cl
 		// TODO Auto-generated method stub
 		return ownerRepository.save(owner);
 	}
+	
 
 
 
@@ -67,5 +70,13 @@ private static final Logger logger = LoggerFactory.getLogger(OwnerServiceImpl.cl
 		// TODO Auto-generated method stub
 		Owner owner = findById(id);
 		ownerRepository.delete(owner);
+	}
+
+
+
+	@Override
+	public List<Owner> findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
